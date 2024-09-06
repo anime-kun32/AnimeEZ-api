@@ -11,9 +11,9 @@ let config = require("../config.js");
 const db = require("quick.db");
 const CryptoJS = require("crypto-js")
 const USER_AGENT = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.71 Safari/537.36"
-const Referer = "https://gogoplay.io/"
+const Referer = "https://anitaku.io/"
 const BASE_URL = config.gogoanime_url;
-const ajax_url = "https://ajax.gogo-load.com/"
+const ajax_url = "https://ajax.gogocdn.net/ajax/"
 const ENCRYPTION_KEYS_URL = "https://raw.githubusercontent.com/justfoolingaround/animdl-provider-benchmarks/master/api/gogoanime.json"
 
 app.set("views", path.join(__dirname, "views"));
@@ -118,7 +118,7 @@ app.get("/api/details/:id", async(req, res) => {
   const movie_id = $('#movie_id').attr('value')
         const alias = $('#alias_anime').attr('value')
   let epList = [];
-     html = await axios.get(`https://ajax.gogo-load.com/ajax/load-list-episode?ep_start=${ep_start}&ep_end=${ep_end}&id=${movie_id}&default_ep=${0}&alias=${alias}`)
+     html = await axios.get(`https://ajax.gogocdn.net/ajax/load-list-episode?ep_start=${ep_start}&ep_end=${ep_end}&id=${movie_id}&default_ep=${0}&alias=${alias}`)
         const $$ = cheerio.load(html.data);
 
   await $$(" #episode_related > li").each(async(i, elem) => {
